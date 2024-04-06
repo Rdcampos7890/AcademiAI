@@ -20,6 +20,7 @@ while diff != 0:
     for index_1, row_1 in Centroids.iterrows():
         ED = []
         for index_2, row_2 in data_copy.iterrows():
+            # do in numpy
             d1 = (row_1["authors"] - row_2["authors"])**2
             d2 = (row_1["title"] - row_2["title"])**2
             d3 = (row_1["abstract"] - row_2["abstract"])**2

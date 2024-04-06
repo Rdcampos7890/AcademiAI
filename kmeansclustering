@@ -7,6 +7,16 @@ data = pd.read_csv("arxiv_dataset.csv") # replace with actual file name
 data.drop(["id", "submitter", "comments", "journal-ref", "doi", "versions"], axis=1, inplace=True)
 
 # vectorize dataset
+# idk how data sets work so lets just say categories is a 1 by n array 
+# with all the categories for all n research papers
+category_keys = sorted(set(categories.tolist()))
+d = len(category_keys)
+one_hot_cat = []
+for category in categories:
+    encoding = [0] * d
+    encoding[category_keys.index(category)] = 1
+    one_hot_cat.append(encoding)
+
 
 K = 150 
 Centroids = (data.sample(n=K))
